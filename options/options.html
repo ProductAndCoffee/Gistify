@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gistify — Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <h1>Gistify Settings</h1>
+      </div>
+      <p class="subtitle">Configure your AI provider and storage preferences</p>
+    </header>
+
+    <form id="settings-form">
+      <section class="section">
+        <h2>LLM Provider</h2>
+
+        <div class="field">
+          <label for="provider">Provider</label>
+          <select id="provider" name="provider">
+            <!-- Populated dynamically from config/providers.js -->
+          </select>
+        </div>
+
+        <!-- API key fields are built dynamically from config/providers.js -->
+        <div id="api-key-fields"></div>
+      </section>
+
+      <section class="section">
+        <h2>Storage</h2>
+
+        <div class="field">
+          <label for="downloadFolder">Download Subfolder</label>
+          <input type="text" id="downloadFolder" name="downloadFolder" placeholder="PageSummaries">
+          <small>Files are saved to <code>{Downloads}/{subfolder}/</code></small>
+        </div>
+
+        <div class="field">
+          <label for="bookmarkFolder">Bookmark Folder</label>
+          <input type="text" id="bookmarkFolder" name="bookmarkFolder" placeholder="Page Summaries">
+          <small>Bookmarks will be created under this folder name</small>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary" id="save-btn">Save Settings</button>
+        <span id="save-status" class="save-status"></span>
+      </div>
+    </form>
+  </div>
+
+  <script src="../config/providers.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

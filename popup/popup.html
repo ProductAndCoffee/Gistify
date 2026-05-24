@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <h1>Gistify</h1>
+      </div>
+    </header>
+
+    <!-- Shown when no API key is configured -->
+    <div id="setup-view" class="view" style="display: none;">
+      <div class="setup-message">
+        <span class="setup-icon">⚙️</span>
+        <p>Please configure your API key in the extension settings to get started.</p>
+        <button id="open-settings" class="btn btn-primary">Open Settings</button>
+      </div>
+    </div>
+
+    <!-- Main progress & summary view -->
+    <div id="progress-view" class="view">
+      <div class="steps">
+        <div class="step" data-step="bookmark">
+          <span class="step-indicator">○</span>
+          <span class="step-label">Bookmarking page</span>
+        </div>
+        <div class="step" data-step="extract">
+          <span class="step-indicator">○</span>
+          <span class="step-label">Extracting content</span>
+        </div>
+        <div class="step" data-step="summarize">
+          <span class="step-indicator">○</span>
+          <span class="step-label">Summarizing with AI</span>
+        </div>
+        <div class="step" data-step="save">
+          <span class="step-indicator">○</span>
+          <span class="step-label">Saving summary</span>
+        </div>
+      </div>
+
+      <div id="summary-section" class="summary-section" style="display: none;">
+        <h2>Summary</h2>
+        <div id="summary-content" class="summary-content"></div>
+        <div id="summary-tags" class="summary-tags"></div>
+      </div>
+
+      <div id="error-section" class="error-section" style="display: none;">
+        <span class="error-icon">⚠️</span>
+        <p id="error-message"></p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a href="#" id="settings-link">Settings</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
